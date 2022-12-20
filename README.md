@@ -87,12 +87,21 @@ ro.zygote=zygote64_32
 ```
 
 ro.vendor.mediatek.platform=MT6789
+
 ro.hardware.vulkan=mali
+
 ro.vendor.mtk_f2fs_enable=1
+
 ro.vendor.tran.trans_pay_tee=1
+
 ro.hardware.paytrigger=trustonic
+
 ro.vendor.tran.version.release=X676C-H891ZAaAbAc-S-OP-221031V733
+
 ro.sf.lcd_density=480
+
 ro.soc.manufacturer=Mediatek
+
 ro.hardware.egl=meow
+
 ro.vendor.mtk_tee_gp_support=1
