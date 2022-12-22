@@ -11,11 +11,17 @@ Internal Storage | 128 GB (UFS 2.2)
 The tester [Chela_vek](https://4pda.to/forum/index.php?showuser=8411813) only install `boot-X676C-A12-nnnnnnnn-nnnn.img` test modified file to know if TWRP can start.
 
 References for Tests & Building: [BoardConfig.mk](https://android.googlesource.com/device/google/cuttlefish/+/70e6a3f2434529698dc831471a1a7b675cb87cc3/shared/BoardConfig.mk)
+
 [Bootloader overview](https://source.android.com/docs/core/architecture/bootloader)
+
 [Vendor Boot Partitions](https://source.android.com/docs/core/architecture/bootloader/partitions/vendor-boot-partitions)
+
 [Boot Image Header](https://source.android.com/docs/core/architecture/bootloader/boot-image-header)
+
 [Generic Boot Partition - vendor_boot](https://source.android.com/docs/core/architecture/bootloader/partitions/generic-boot)
+
 [Vendor/ODM DLKM Partition](https://source.android.com/docs/core/architecture/bootloader/partitions/vendor-odm-dlkm-partition)
+
 [Version Information in AVB properties](https://source.android.com/docs/core/architecture/bootloader/version-info-avb)
 
 Install img file: [in fastbood -- Fastboot commands](https://source.android.com/docs/core/architecture/bootloader/fastbootd#fastboot-commands)
