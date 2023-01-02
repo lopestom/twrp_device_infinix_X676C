@@ -56,7 +56,7 @@ Issue:
 
 ### This branch android-12.1 has ***encrypt/decrypt*** files and option to more test with that.
 
-![TWRP Working](https://github.com/lopestom/t)
+![TWRP Working](https://github.com/lopestom/twrp_device_infinix_X676C/blob/android-12.1/pictures/TWRP_DSC_0013.jpg?raw=true)
 
 -----
 #### Building
