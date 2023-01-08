@@ -46,6 +46,23 @@ Fetches the vendor_boot image. Returns an error if the vendor boot header is ver
 For details, see fastboot flash vendor_boot:<foo> <vendor-ramdisk.img>
 ```
 
+Some information about boot.img GKI 2.0 https://android.googlesource.com/platform/external/avb/#gki-2_0-integration
+```
+# Uses a prebuilt boot.img
+TARGET_NO_KERNEL := true
+BOARD_PREBUILT_BOOTIMAGE := device/${company}/${board}/boot.img
+
+# Enables chained vbmeta for the boot.img so it can be updated independently,
+# without updating the vbmeta.img. The following configs are optional.
+# When they're absent, the hash of the boot.img will be stored then signed in
+# the vbmeta.img.
+BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
+```
+
+
 Some tests was made: 
 Initial DT: 2022-12-20
 Issue: 
