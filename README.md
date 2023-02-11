@@ -13,7 +13,7 @@ The tester [Chela_vek](https://4pda.to/forum/index.php?showuser=8411813) has new
 <details><summary>References for Tests & Building: [bootimg header v4] - Click to open</summary>
 <p>
 
-(https://android.googlesource.com/platform/system/tools/mkbootimg/+/refs/heads/master/include/bootimg/bootimg.h#404)
+[bootimg header v4](https://android.googlesource.com/platform/system/tools/mkbootimg/+/refs/heads/master/include/bootimg/bootimg.h#404)
 
 [BoardConfig.mk](https://android.googlesource.com/device/google/cuttlefish/+/70e6a3f2434529698dc831471a1a7b675cb87cc3/shared/BoardConfig.mk)
 
