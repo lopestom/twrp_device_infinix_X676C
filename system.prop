@@ -4,20 +4,44 @@ ro.postinstall.fstab.prefix=/system
 # USB MTP
 ro.sys.usb.storage.type=mtp
 
+# identity
+Build.BRAND=MTK
+ro.vendor.mediatek.version.release=alps-mp-s0.mp1.rc-V12.11.1_koobee.s0mp1rc.k61v1.64.bsp_P27
+
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
 
-# TEE
+# TEE & Gatekeeper & Keymaster
 ro.vendor.mtk_tee_gp_support=1
+ro.vendor.mtk_svp_on_mtee_support=2
+ro.hardware.kmsetkey=beanpod
+ro.hardware.gatekeeper=beanpod
+ro.vendor.mtk_microtrust_tee_support=1
 
-# Gatekeeper
-ro.vendor.mediatek.platform=MT6789
-ro.hardware.vulkan=mali
-ro.vendor.mtk_f2fs_enable=1
 ro.vendor.tran.trans_pay_tee=1
 ro.hardware.paytrigger=trustonic
-ro.vendor.tran.version.release=X676C-H891ZAaAbAc-S-OP-221031V733
-ro.sf.lcd_density=480
-ro.soc.manufacturer=Mediatek
-ro.hardware.egl=meow
 ro.vendor.mtk_svp_on_mtee_support=2
+ro.vendor.mtk_tee_gp_support=1
+ro.vendor.mtk_f2fs_enable=1
+
+# Others
+external_storage.projid.enabled=1
+external_storage.casefold.enabled=1
+external_storage.sdcardfs.enabled=0
+ro.vendor.mediatek.platform=MT6789
+ro.hardware.egl=meow
+ro.soc.manufacturer=Mediatek
+
+# HideReflashTWRP
+ro.twrp.vendor_boot=true
+
+##################
+ro.odm.tee=2
+external_storage.projid.enabled=1
+external_storage.casefold.enabled=1
+external_storage.sdcardfs.enabled=0
+ro.vendor.mediatek.platform=MT6789
+ro.vendor.mtk_f2fs_enable=1
+ro.vendor.mtk_emmc_support=1
+ro.odm.pri_aging_emmc=1
+ro.hardware.egl=meow

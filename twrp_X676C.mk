@@ -14,30 +14,29 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
+# Configure launch_with_vendor_ramdisk.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+
+# Configure core_64_bit.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Inherit from those products. Most specific first.
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Inherit some common TWRP stuff.
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
+# Inherit from our custom product configuration.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Device specific configs
+# Device specific configs.
 $(call inherit-product, device/infinix/X676C/device.mk)
 
-# Device identifier
+## Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := X676C
 PRODUCT_NAME := twrp_X676C
 PRODUCT_BRAND := Infinix
 PRODUCT_MODEL := Infinix X676C
 PRODUCT_MANUFACTURER := INFINIX
-
-# Hide Reflash TWRP
-PRODUCT_PROPERTY_OVERRIDES += ro.twrp.vendor_boot=true
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=Infinix-X676C \
-    PRODUCT_NAME=X676C-OP \
-    PRIVATE_BUILD_DESC="vext_x676c_h891-user 12 SP1A.210812.016 142062 release-keys"
-
-BUILD_FINGERPRINT := Infinix/X676C-OP/Infinix-X676C:12/SP1A.210812.016/221031V733:user/release-keys
+PRODUCT_RELEASE_NAME := Infinix X676C
