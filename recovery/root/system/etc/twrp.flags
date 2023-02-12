@@ -1,51 +1,66 @@
-# fstab file by lopestom for Infinix Note 12 2023 X676C-H891ZAaAbAc-S-OP-221031V733
+# fstab file by lopestom for Infinix Note 12 2023 X676C-H891ZAaAbAc-S-OP-221019V702 -- x676c_h891
 
-#<mnt_point>        <type>    <device>                                                              <mnt_flags and options>
-/metadata           ext4      /dev/block/by-name/metadata                                           flags=display="metadata";backup=1
-/data               f2fs      /dev/block/by-name/userdata                                           flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
-/boot               emmc      /dev/block/by-name/boot                                               flags=display="boot";slotselect;backup=1;flashimg=1
-/dtbo               emmc      /dev/block/by-name/dtbo                                               flags=display="dtbo";backup=1
-/vendor_boot        emmc      /dev/block/by-name/vendor_boot                                        flags=display="vendor_boot";slotselect;backup=1;flashimg=1
-/vbmeta             emmc      /dev/block/by-name/vbmeta                                             flags=display="vbmeta";backup=1;flashimg=1
-/vbmeta_system      emmc      /dev/block/by-name/vbmeta_system                                      flags=display="vbmeta_system";slotselect;backup=1;flashimg=1
-/vbmeta_vendor      emmc      /dev/block/by-name/vbmeta_vendor                                      flags=display="vbmeta_vendor";slotselect;backup=1;flashimg=1
+#<mnt_point>        <type>    <device>                                               <mnt_flags and options>
+/metadata           ext4      /dev/block/by-name/metadata                            flags=display="metadata";backup=1
+/data               f2fs      /dev/block/by-name/userdata                            flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
+/tranfs             ext4      /dev/block/by-name/tranfs
+/protect_f          ext4      /dev/block/by-name/protect1                            flags=display="protect_f"
+/protect_s          ext4      /dev/block/by-name/protect2                            flags=display="protect_s"
+/nvdata             ext4      /dev/block/by-name/nvdata                              flags=display="nvdata"
+/nvcfg              ext4      /dev/block/by-name/nvcfg                               flags=display="nvcfg"
+/persist            ext4      /dev/block/by-name/persist                             flags=display="persist"
+/persist_image      emmc      /dev/block/by-name/persist                             flags=display="persist";backup=1;flashimg=1
+/persistent         emmc      /dev/block/by-name/frp                                 flags=display="persistent";backup=1;flashimg=1
+/nvram              emmc      /dev/block/by-name/nvram                               flags=display="nvram";backup=1;flashimg=1
+/proinfo            emmc      /dev/block/by-name/proinfo                             flags=display="proinfo"
+/lk1                emmc      /dev/block/by-name/lk1                                  flags=display="lk1"
+/bootloader2        emmc      /dev/block/by-name/lk2                                 flags=display="bootloader2"
+/para               emmc      /dev/block/by-name/para                                flags=display="para";backup=1;flashimg=1
+/misc               emmc      /dev/block/by-name/misc                                flags=display="misc";backup=1;flashimg=1
+/boot               emmc      /dev/block/by-name/boot                                flags=display="boot";slotselect;backup=1;flashimg=1
+/vbmeta_vendor      emmc      /dev/block/by-name/vbmeta_vendor                       flags=display="vbmeta_vendor";slotselect;flashimg=1
+/vbmeta_system      emmc      /dev/block/by-name/vbmeta_system                       flags=display="vbmeta_system";slotselect;flashimg=1
+/logo               emmc      /dev/block/by-name/logo                                flags=display="logo";backup=1;flashimg=1
+/expdb              emmc      /dev/block/by-name/expdb                               flags=display="expdb"
+/seccfg             emmc      /dev/block/by-name/seccfg                              flags=display="seccfg"
+/tee1               emmc      /dev/block/by-name/tee1                                flags=display="tee1"
+/tee2               emmc      /dev/block/by-name/tee2                                flags=display="tee2"
+/scp1               emmc      /dev/block/by-name/scp1                                flags=display="scp1"
+/scp2               emmc      /dev/block/by-name/scp2                                flags=display="scp2"
+/sspm_1             emmc      /dev/block/by-name/sspm_1                              flags=display="sspm_1"
+/sspm_2             emmc      /dev/block/by-name/sspm_2                              flags=display="sspm_1"
+/dpm_1              emmc      /dev/block/by-name/dpm_1                               flags=display="dpm_1"
+/dpm_2              emmc      /dev/block/by-name/dpm_2                               flags=display="dpm_2"
+/mcupm_1            emmc      /dev/block/by-name/mcupm_1                             flags=display="mcupm_1"
+/mcupm_2            emmc      /dev/block/by-name/mcupm_2                             flags=display="mcupm_2"
+/md1img             emmc      /dev/block/by-name/md1img                              flags=display="md1img"
+/md1dsp             emmc      /dev/block/by-name/md1dsp                              flags=display="md1dsp"
+/md1arm7            emmc      /dev/block/by-name/md1arm7                             flags=display="md1arm7"
+/md3img             emmc      /dev/block/by-name/md3img                              flags=display="md3img"
+/gz1                emmc      /dev/block/by-name/gz1                                 flags=display="gz1"
+/gz2                emmc      /dev/block/by-name/gz2                                 flags=display="gz2"
+/vendor_boot        emmc      /dev/block/by-name/vendor_boot                         flags=display="vendor_boot";slotselect;backup=1;flashimg=1
+/spmfw              emmc      /dev/block/by-name/spmfw                               flags=display="spmfw"
+/boot_para          emmc      /dev/block/by-name/boot_para                           flags=display="boot_para"
+/pi_img             emmc      /dev/block/by-name/pi_img                              flags=display="pi_img"
+/dtbo               emmc      /dev/block/by-name/dtbo                                flags=display="dtbo"
+/otp                emmc      /dev/block/by-name/otp                                 flags=display="otp"
+/vbmeta             emmc      /dev/block/by-name/vbmeta                              flags=display="vbmeta";flashimg=1
+/tkv                emmc      /dev/block/by-name/tkv
 
-/boot_para          emmc      /dev/block/by-name/boot_para                                          flags=display="boot_para"
-/logo               emmc      /dev/block/by-name/logo                                               flags=display="logo";backup=1
-/misc               emmc      /dev/block/by-name/misc                                               flags=display="misc";backup=1;flashimg=1
-/para               emmc      /dev/block/by-name/para                                               flags=display="para"
+# External-Devices (SDCARD | OTG)
+/external_sd    auto     /dev/block/mmcblk0p1  /dev/block/mmcblk0            flags=display="Micro_SDcard";storage;wipeingui;removable;fsflags="utf8"
+/usbotg        auto     /dev/block/sdd1  /dev/block/sdd                     flags=display="Usb_Otg";storage;wipeingui;removable;fsflags="utf8"
 
-/persist            ext4      /dev/block/by-name/persist                                            flags=display="persist"
-/persist_image      emmc      /dev/block/by-name/persist                                            flags=display="persist";backup=1;flashimg=1
-
-/rescue             ext4      /dev/block/by-name/rescue                                             flags=display="rescue"
-/protect_f          ext4      /dev/block/protect1                                                   flags=display="protect_f"
-/protect_s          ext4      /dev/block/protect2                                                   flags=display="protect_s"
-/nvdata             ext4      /dev/block/nvdata                                                     flags=display="nvdata"
-/nvcfg              ext4      /dev/block/nvcfg                                                      flags=display="nvcfg"
-/otp                emmc      /dev/block/by-name/otp                                                flags=display="otp"
-/persistent         emmc      /dev/block/by-name/frp                                                flags=display="persistent"
-/nvram              emmc      /dev/block/by-name/nvram                                              flags=display="nvram"
-/proinfo            emmc      /dev/block/by-name/proinfo                                            flags=display="proinfo"
-/bootloader         emmc      /dev/block/by-name/lk                                                 flags=display="bootloader"
-/bootloader2        emmc      /dev/block/by-name/lk2                                                flags=display="bootloader2"
-/gz1                emmc      /dev/block/by-name/gz1                                                flags=display="gz1"
-/gz2                emmc      /dev/block/by-name/gz2                                                flags=display="gz2"
-/expdb              emmc      /dev/block/by-name/expdb                                              flags=display="expdb"
-/seccfg             emmc      /dev/block/by-name/seccfg                                             flags=display="seccfg"
-/tee1               emmc      /dev/block/by-name/tee1                                               flags=display="tee1"
-/tee2               emmc      /dev/block/by-name/tee2                                               flags=display="tee2"
-/mcupm_1            emmc      /dev/block/by-name/mcupm_1                                            flags=display="mcupm_1"
-/mcupm_2            emmc      /dev/block/by-name/mcupm_2                                            flags=display="mcupm_2"
-/scp1               emmc      /dev/block/by-name/scp1                                               flags=display="scp1"
-/scp2               emmc      /dev/block/by-name/scp2                                               flags=display="scp2"
-/sspm_1             emmc      /dev/block/by-name/sspm_1                                             flags=display="sspm_1"
-/sspm_2             emmc      /dev/block/by-name/sspm_2                                             flags=display="sspm_1"
-/dpm_1              emmc      /dev/block/by-name/dpm_1                                              flags=display="dpm_1"
-/dpm_2              emmc      /dev/block/by-name/dpm_2                                              flags=display="dpm_2"
-/md1img             emmc      /dev/block/by-name/md1img                                             flags=display="md1arm7"
-/spmfw              emmc      /dev/block/by-name/spmfw                                              flags=display="spmfw"
-/pi_img             emmc      /dev/block/by-name/pi_img                                             flags=display="pi_img"
-
-# removable
-/usb-otg            auto      /dev/block/sdd1                                                       flags=display="usb-otg";storage;wipeingui;removable;fsflags="utf8"
+## Some partitions not enable in this moment.
+## /devices/platform/soc/11240000.mmc* auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
+## /devices/platform/soc/mt_usb* auto vfat defaults voldmanaged=usbotg:auto,encryptable=userdata
+## /dev/block/by-name/ccu /ccu emmc defaults defaults
+## /dev/block/by-name/vcp /vcp emmc defaults defaults
+## /dev/block/by-name/gpueb /gpueb emmc defaults defaults
+## /dev/block/by-name/mcf_ota /mcf_ota emmc defaults defaults
+## /dev/block/by-name/mvpu_algo1 /mvpu_algo1 emmc defaults defaults
+## /dev/block/by-name/mvpu_algo2 /mvpu_algo2 emmc defaults defaults
+## /dev/block/by-name/apusys1 /apusys1 emmc defaults defaults
+## /dev/block/by-name/apusys2 /apusys2 emmc defaults defaults
+## /dev/block/by-name/odmdtbo /odmdtbo emmc defaults defaults
