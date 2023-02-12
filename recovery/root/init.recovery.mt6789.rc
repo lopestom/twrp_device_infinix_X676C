@@ -76,6 +76,20 @@ service service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.securit
     user root
     seclabel u:r:recovery:s0
 
+service paytrigger_hal_service /vendor/bin/hw/vendor.mediatek.hardware.paytrigger@1.0-service
+	class hal
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
+    class hal
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 on property:crypto.ready=1
     start vendor.keymint-trustonic
 
@@ -84,22 +98,22 @@ on property:hwservicemanager.ready=true
     start vendor.gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
-    stop teei_daemon
+    stop paytrigger_hal_service
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
-    stop teei_daemon
+    stop paytrigger_hal_service
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
 on property:twrp.decrypt.done=true
-    stop teei_daemon
+    stop paytrigger_hal_service
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
 on property:crypto.ready=0
-    stop teei_daemon
+    stop paytrigger_hal_service
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
