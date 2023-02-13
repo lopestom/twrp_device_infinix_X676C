@@ -112,6 +112,5 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4.1
     
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_Armor_12S
-TARGET_RECOVERY_DEVICE_MODULES := libinit_Armor_12S
-
+TARGET_INIT_VENDOR_LIB := libinit_X676C
+TARGET_RECOVERY_DEVICE_MODULES := libinit_X676C
