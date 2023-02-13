@@ -77,7 +77,7 @@ service service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.securit
     seclabel u:r:recovery:s0
 
 service paytrigger_hal_service /vendor/bin/hw/vendor.mediatek.hardware.paytrigger@1.0-service
-	class hal
+    class hal
     user root
     group root
     disabled
@@ -94,26 +94,32 @@ on property:crypto.ready=1
     start vendor.keymint-trustonic
 
 on property:hwservicemanager.ready=true
+    start paytrigger_hal_service
+    start mobicore
     start vendor.keymint-trustonic
     start vendor.gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop paytrigger_hal_service
+    stop mobicore
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
     stop paytrigger_hal_service
+    stop mobicore
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
 on property:twrp.decrypt.done=true
     stop paytrigger_hal_service
+    stop mobicore
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
 on property:crypto.ready=0
     stop paytrigger_hal_service
+    stop mobicore
     stop vendor.keymint-trustonic
     stop vendor.gatekeeper-1-0
 
