@@ -70,7 +70,9 @@ Update:
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 
- ![TWRP Mount](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-42-39.png) ![TWRP Backup](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-42-57.png) ![TWRP Backup1](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-41-48.png) ![TWRP Backup2](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-38-14.png) ![TWRP Screen](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-40-20.png)
+![TWRP Backup](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-42-39.png) ![TWRP Mount](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-42-57.png)
+![TWRP Backup1](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-41-48.png) ![TWRP Backup2](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-38-14.png)
+![TWRP Screen](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-40-20.png)
 </p>
 </details>
 
