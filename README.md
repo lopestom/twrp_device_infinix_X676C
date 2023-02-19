@@ -70,9 +70,13 @@ Update:
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 ![TWRP Working](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-42-39.png)
+
 ![TWRP Working](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-42-57.png)
+
 ![TWRP Working](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-41-48.png)
+
 ![TWRP Working](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-38-14.png)
+
 ![TWRP Working](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/IN_12_2023-X676C-v848/Screenshot_2023-02-19-13-40-20.png)
 </p>
 </details>
