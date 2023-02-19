@@ -216,7 +216,8 @@ TW_DEFAULT_LANGUAGE := en
 TW_INPUT_BLACKLIST := hbtp_vm
 TW_DEFAULT_BRIGHTNESS := 1000
 TW_DEVICE_VERSION := IN12 2023 X676C - lopestom
-TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone54/temp
+#TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone54/temp =>> Not Work!
+## I:CPU temperature file '/sys/class/thermal/thermal_zone54/temp' not found, disabling CPU temp. ##
 #TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_EXTRA_LANGUAGES := false
 TARGET_USES_MKE2FS := true
