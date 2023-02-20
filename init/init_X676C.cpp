@@ -49,5 +49,5 @@ void model_property_override(const std::string& device, const std::string& model
 }
 
 void vendor_load_properties() {
-    model_property_override("Infinix X676C", "Infinix X676C");
+    model_property_override("Infinix-X676C", "Infinix X676C");
 }
