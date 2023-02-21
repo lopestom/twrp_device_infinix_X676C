@@ -186,14 +186,11 @@ TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 
 # Crypto
-TW_INCLUDE_CRYPTO := false
-TW_INCLUDE_CRYPTO_FBE := false
-TW_INCLUDE_FBE_METADATA_DECRYPT := false
-#TW_INCLUDE_CRYPTO := true
-#TW_INCLUDE_CRYPTO_FBE := true
-#TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
-#TW_USE_FSCRYPT_POLICY := 2
+TW_USE_FSCRYPT_POLICY := 2
 
 # Hack
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -215,7 +212,7 @@ TW_INCLUDE_REPACKTOOLS := true
 TW_DEFAULT_LANGUAGE := en
 TW_INPUT_BLACKLIST := hbtp_vm
 TW_DEFAULT_BRIGHTNESS := 1000
-TW_DEVICE_VERSION := IN12 2023 X676C - lopestom
+TW_DEVICE_VERSION := IN12_2023 X676C - lopestom
 #TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone54/temp =>> Not Work!
 ## I:CPU temperature file '/sys/class/thermal/thermal_zone54/temp' not found, disabling CPU temp. ##
 #TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
