@@ -19,6 +19,7 @@ env:
   DT_PATH: device/infinix/X676C
   TARGET: vendorbootimage
   TZ: Asia/manila
+  BRANCH: WIP
 
 jobs:
   build:
@@ -59,7 +60,12 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "lopestom"
         git config --global user.email "guillopes2002@gmail.com"
-#        repo init --depth=1 -u $MANIFEST -b ${{ github.event.inputs.MANIFEST_BRANCH }}
+        PATH=~/bin:$PATH
+        mkdir twrp
+        cd twrp
+        repo init --depth=1 -u $MANIFEST -b $BRANCH
+        repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+        rm -rf .repo
 
     - name: Install OpenJDK
       uses: actions/setup-java@v3
@@ -72,34 +78,34 @@ jobs:
       with:
        swap-size-gb: 12
 
-    - name: Sync recovery source and device tree
+#    - name: Sync recovery source and device tree
+#      run: |
+#       PATH=~/bin:$PATH
+#       mkdir twrp
+#       cd twrp
+#       repo init -u $MANIFEST --depth=1
+#       repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+#       rm -rf .repo
+             
+    - name: Checkout device tree
+      uses: actions/checkout@v2
+      with:
+       path: twrp/device/infinix/X676C
+             
+    - name: Build
       run: |
-       PATH=~/bin:$PATH
-       mkdir twrp
-       cd twrp
-       repo init -u $MANIFEST --depth=1
-       repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
-       rm -rf .repo
+           PATH=~/bin:$PATH
+           cd twrp
+           export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_X676C-eng && mka $TARGET -j$(nproc --all)
+           cp  out/target/product/X676C/vendor_boot.img    out/target/product/X676C/vendor_boot-IN12-X676C-A12-$(date +"%Y%m%d").img  
              
-       - name: Checkout device tree
-         uses: actions/checkout@v2
-         with:
-          path: twrp/device/infinix/X676C
-             
-       - name: Build
-         run: |
-              PATH=~/bin:$PATH
-              cd twrp
-              export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_X676C-eng && mka $TARGET -j$(nproc --all)
-              cp  out/target/product/X676C/vendor_boot.img    out/target/product/X676C/vendor_boot-IN12-X676C-A12-$(date +"%Y%m%d").img  
-             
-       - name: Release recovery image
-         uses: softprops/action-gh-release@v1
-         env:
-          GITHUB_TOKEN: ${{ secrets.TEST }}
-         with:
-          tag_name: IN_12_2023-X676C-v848 
-          name: TWRP37x_12
-          files: | 
-            twrp/out/target/product/X676C/*boot*.img
-            twrp/out/target/product/X676C/ramdisk*.img
+    - name: Release recovery image
+      uses: softprops/action-gh-release@v1
+      env:
+       GITHUB_TOKEN: ${{ secrets.TEST }}
+      with:
+       tag_name: IN_12_2023-X676C-v848 
+       name: TWRP37x_12
+       files: | 
+         twrp/out/target/product/X676C/*boot*.img
+         twrp/out/target/product/X676C/ramdisk*.img
