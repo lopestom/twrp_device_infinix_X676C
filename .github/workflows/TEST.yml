@@ -96,7 +96,7 @@ jobs:
       run: |
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
-        lunch $DEVICE-eng && make clean && make $TARGET -j$(nproc --all)
+        lunch twrp_$DEVICE-eng && make clean && make $TARGET -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Upload to Release
