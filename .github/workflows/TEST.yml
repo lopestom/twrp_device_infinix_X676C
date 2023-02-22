@@ -96,18 +96,18 @@ jobs:
       run: |
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
-        lunch twrp_$DEVICE-eng && make clean && make $TARGET -j$(nproc --all)
+        lunch twrp_X676C-eng && make clean && make vendorbootimage -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        files: workspace/out/target/product/$DEVICE/*.img
-        name: $DEVICE-${{ github.run_id }}
+        files: workspace/out/target/product/X676C/*.img
+        name: X676C-${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
-          Manifest: $MANIFEST
-          Device: $DEVICE
-          Target: $vendorbootimage.img
+          Manifest: twrp-12.1
+          Device: X676C
+          Target: vendorbootimage.img
       env:
         GITHUB_TOKEN: ${{ secrets.TEST }}
