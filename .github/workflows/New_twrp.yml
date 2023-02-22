@@ -97,7 +97,7 @@ jobs:
            PATH=~/bin:$PATH
            cd twrp
            export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_X676C-eng && mka $TARGET -j$(nproc --all)
-           cp  out/target/product/X676C/vendor_boot.img    out/target/product/X676C/vendor_boot-IN12-X676C-A12-$(date +"%Y%m%d").img  
+           cp  workspace/out/target/product/X676C/vendor_boot.img    workspace/out/target/product/X676C/vendor_boot-IN12-X676C-A12-$(date +"%Y%m%d").img  
              
     - name: Release recovery image
       uses: softprops/action-gh-release@v1
