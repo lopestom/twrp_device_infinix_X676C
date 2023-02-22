@@ -60,12 +60,10 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "lopestom"
         git config --global user.email "guillopes2002@gmail.com"
-        PATH=~/bin:$PATH
-        mkdir twrp
-        cd twrp
         repo init --depth=1 -u $MANIFEST
         repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
         rm -rf .repo
+      id: pwd
 
     - name: Install OpenJDK
       uses: actions/setup-java@v3
@@ -90,7 +88,7 @@ jobs:
     - name: Checkout device tree
       uses: actions/checkout@v2
       with:
-       path: twrp/device/infinix/X676C
+       path: device/infinix/X676C
              
     - name: Building recovery
       run: |
