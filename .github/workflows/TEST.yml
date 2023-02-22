@@ -66,9 +66,9 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "lopestom"
         git config --global user.email "guillopes2002@gmail.com"
-#        repo init --depth=1 -u $MANIFEST
-#        repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
-#        rm -rf .repo
+        repo init --depth=1 -u $MANIFEST
+        repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+        rm -rf .repo
       id: pwd
 
     - name: Repo Sync
@@ -81,11 +81,6 @@ jobs:
         git clone $DT_LINK -b $DT_BRANCH ./$DT_PATH
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-    - name: Set Swap Space
-      uses: pierotofy/set-swap-space@master
-      with:
-       swap-size-gb: 12
-
 #    - name: Sync recovery source and device tree
 #      run: |
 #       PATH=~/bin:$PATH
@@ -95,11 +90,16 @@ jobs:
 #       repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
 #       rm -rf .repo
              
-#    - name: Checkout device tree
-#      uses: actions/checkout@v2
-#      with:
-#       path: device/infinix/X676C
-             
+    - name: Checkout device tree
+      uses: actions/checkout@v2
+      with:
+       path: device/infinix/X676C
+
+    - name: Set Swap Space
+      uses: pierotofy/set-swap-space@master
+      with:
+       swap-size-gb: 12
+
     - name: Building recovery
       run: |
         source build/envsetup.sh
