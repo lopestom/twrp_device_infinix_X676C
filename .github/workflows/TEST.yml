@@ -19,7 +19,7 @@ env:
   DT_PATH: device/infinix/X676C
   TARGET: vendorbootimage
   TZ: Asia/manila
-#  BRANCH: WIP
+  DT_BRANCH: WIP
 
 jobs:
   build:
