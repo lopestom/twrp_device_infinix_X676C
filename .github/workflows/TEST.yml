@@ -85,8 +85,8 @@ jobs:
 #       repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
 #       rm -rf .repo
              
-    - name: Checkout device tree
-      uses: actions/checkout@v2
+#    - name: Checkout device tree
+#      uses: actions/checkout@v2
 #      with:
 #       path: device/infinix/X676C
              
