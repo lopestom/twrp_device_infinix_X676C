@@ -107,5 +107,7 @@ jobs:
        tag_name: IN_12_2023-X676C-v848 
        name: TWRP37x_12
        files: | 
-         twrp/out/target/product/X676C/*boot*.img
-         twrp/out/target/product/X676C/ramdisk*.img
+          workspace/out/target/product/X676C/*boot*.img
+          workspace/twrp/out/target/product/X676C/*boot*.img      
+ #        twrp/out/target/product/X676C/*boot*.img
+ #        twrp/out/target/product/X676C/ramdisk*.img
