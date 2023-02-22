@@ -70,11 +70,12 @@ jobs:
         repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
         rm -rf .repo
       id: pwd
-
-    - name: Repo Sync
-      run: |
-        repo sync -j$(nproc --all) --force-sync
       working-directory: workspace
+
+#    - name: Repo Sync
+#      run: |
+#        repo sync -j$(nproc --all) --force-sync
+#      working-directory: workspace
       
     - name: Clone device tree
       run: |
