@@ -72,29 +72,29 @@ jobs:
       id: pwd
       working-directory: workspace
 
-#    - name: Repo Sync
-#      run: |
-#        repo sync -j$(nproc --all) --force-sync
-#      working-directory: workspace
+    - name: Repo Sync
+      run: |
+        repo sync -j$(nproc --all) --force-sync
+      working-directory: workspace
       
     - name: Clone device tree
       run: |
         git clone $DT_LINK -b $DT_BRANCH ./$DT_PATH
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-#    - name: Sync recovery source and device tree
-#      run: |
-#       PATH=~/bin:$PATH
-#       mkdir twrp
-#       cd twrp
-#       repo init -u $MANIFEST --depth=1
-#       repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
-#       rm -rf .repo
+    - name: Sync recovery source and device tree
+      run: |
+       PATH=~/bin:$PATH
+       mkdir twrp
+       cd twrp
+       repo init -u $MANIFEST --depth=1
+       repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+       rm -rf .repo
              
     - name: Checkout device tree
       uses: actions/checkout@v2
       with:
-       path: device/infinix/X676C
+       path: twrp/device/infinix/X676C
 
     - name: Set Swap Space
       uses: pierotofy/set-swap-space@master
