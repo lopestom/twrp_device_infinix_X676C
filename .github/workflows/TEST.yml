@@ -87,15 +87,15 @@ jobs:
              
     - name: Checkout device tree
       uses: actions/checkout@v2
-      with:
-       path: device/infinix/X676C
+#      with:
+#       path: device/infinix/X676C
              
     - name: Building recovery
       run: |
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         lunch twrp_X676C-eng && make clean && make vendorbootimage -j$(nproc --all)
-#      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
