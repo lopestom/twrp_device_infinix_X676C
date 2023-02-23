@@ -61,7 +61,7 @@ jobs:
         chmod a+x ~/bin/repo
         sudo ln -sf ~/bin/repo /usr/bin/repo
       
-#    - name: Initialize repo
+#   - name: Initialize repo
 #      run: |
 #        mkdir workspace
 #        cd workspace
@@ -101,22 +101,40 @@ jobs:
       with:
        swap-size-gb: 12
 
-    - name: Building recovery
-      run: |
-        source build/envsetup.sh
-        export ALLOW_MISSING_DEPENDENCIES=true
-        lunch twrp_X676C-eng && make clean && make vendorbootimage -j$(nproc --all)
-      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+ #   - name: Building recovery
+ #     run: |
+ #       source build/envsetup.sh
+ #       export ALLOW_MISSING_DEPENDENCIES=true
+ #       lunch twrp_X676C-eng && make clean && make vendorbootimage -j$(nproc --all)
+ #     working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-    - name: Upload to Release
+#    - name: Upload to Release
+#      uses: softprops/action-gh-release@v1
+#      with:
+#        files: workspace/out/target/product/X676C/*.img
+#        name: X676C-${{ github.run_id }}
+#        tag_name: ${{ github.run_id }}
+#        body: |
+#          Manifest: twrp-12.1
+#          Device: X676C
+#          Target: vendorbootimage.img
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.TEST }}
+
+    - name: Build
+      run: |
+       PATH=~/bin:$PATH
+       cd twrp
+       export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_X676C-eng && mka $TARGET -j$(nproc --all)
+       cp  out/target/product/X676C/vendor_boot.img    out/target/product/X676C/vendor_boot-X676C-$(date +"%Y%m%d").img  
+             
+    - name: Release recovery image
       uses: softprops/action-gh-release@v1
-      with:
-        files: workspace/out/target/product/X676C/*.img
-        name: X676C-${{ github.run_id }}
-        tag_name: ${{ github.run_id }}
-        body: |
-          Manifest: twrp-12.1
-          Device: X676C
-          Target: vendorbootimage.img
       env:
-        GITHUB_TOKEN: ${{ secrets.TEST }}
+       GITHUB_TOKEN: ${{ secrets.TEST }}
+      with:
+       tag_name: TWRP-X676C
+       name: TWRP37x_12
+       files: | 
+         twrp/out/target/product/X676C/*boot*.img
+         twrp/out/target/product/X676C/ramdisk*.img
