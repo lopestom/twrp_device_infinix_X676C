@@ -66,21 +66,21 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "lopestom"
         git config --global user.email "guillopes2002@gmail.com"
-        repo init --depth=1 -u $MANIFEST
-        repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
-        rm -rf .repo
+#        repo init --depth=1 -u $MANIFEST
+#        repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+#        rm -rf .repo
       id: pwd
-      working-directory: workspace
+#      working-directory: workspace
 
-    - name: Repo Sync
-      run: |
-        repo sync -j$(nproc --all) --force-sync
-      working-directory: workspace
+#    - name: Repo Sync
+#      run: |
+#        repo sync -j$(nproc --all) --force-sync
+#      working-directory: workspace
       
-    - name: Clone device tree
-      run: |
-        git clone $DT_LINK -b $DT_BRANCH ./$DT_PATH
-      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+#    - name: Clone device tree
+#      run: |
+#        git clone $DT_LINK -b $DT_BRANCH ./$DT_PATH
+#      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Sync recovery source and device tree
       run: |
