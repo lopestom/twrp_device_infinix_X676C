@@ -32,10 +32,10 @@ service mobicore /vendor/bin/mcDriverDaemon --sfs-reformat --P1 /mnt/vendor/pers
 	-r /vendor/app/mcRegistry/5020170115e016302017012521300000.drbin
 #    user system
 #    group system
-#    class core
+    class core
 #    priority -20
     user root
-    group root
+    group root system
     disabled
     seclabel u:r:recovery:s0
 
