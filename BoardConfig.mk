@@ -1,11 +1,11 @@
-#
-# Copyright (C) 2022 The TWRP Open Source Project
+# Copyright (C) 2023 The Android Open Source Project
+# Copyright (C) 2023 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -41,9 +41,9 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_IS_64_BIT := true
 
 # Assertation
-TARGET_OTA_ASSERT_DEVICE := X676C
+TARGET_OTA_ASSERT_DEVICE := Infinix-X676C,Infinix X676C,X676C-OP
 
-# Bootloader
+# Bootloader x676c_h891
 TARGET_BOOTLOADER_BOARD_NAME := Infinix-X676C
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
@@ -95,40 +95,48 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 
-# DECRYPTION
+#A11 DECRYPTION
 BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS += \
     --prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \
     --prop com.android.build.boot.security_patch:$(PLATFORM_SECURITY_PATCH)
 
 # Partitions
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
-
-BOARD_SUPER_PARTITION_SIZE := 11058364416
+BOARD_SUPER_PARTITION_SIZE := 9663676416
 BOARD_SUPER_PARTITION_GROUPS := main
-BOARD_MAIN_SIZE := 11054170112 # (BOARD_SUPER_PARTITION_SIZE - 4194304) 4MiB ## (11056267264)
+BOARD_MAIN_SIZE := 9642704896 # (BOARD_SUPER_PARTITION_SIZE - 4194304) 4MiB
 BOARD_MAIN_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm odm_dlkm
-
-TARGET_COPY_OUT_ODM := odm
-TARGET_COPY_OUT_PRODUCT := product
-TARGET_COPY_OUT_SYSTEM := system
-TARGET_COPY_OUT_VENDOR := vendor
-TARGET_COPY_OUT_SYSTEM_EXT = system_ext
 
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
-#BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
-#BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-#BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-#BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
+
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-BOARD_ROOT_EXTRA_FOLDERS += tranfs
+TARGET_COPY_OUT_ODM := odm
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM := system
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+TARGET_COPY_OUT_VENDOR := vendor
+
+# Build a separate vendor_dlkm partition
+BOARD_USES_VENDOR_DLKMIMAGE := true
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
+
+# Build a separate odm_dlkm partition
+BOARD_USES_ODM_DLKMIMAGE := true
+BOARD_ODM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_ODM_DLKM := odm_dlkm
+
+# Metadata
+BOARD_USES_METADATA_PARTITION := true
+BOARD_ROOT_EXTRA_FOLDERS += metadata tranfs
 
 # Recovery
 TARGET_NO_RECOVERY := true
@@ -169,7 +177,7 @@ TW_THEME := portrait_hdpi
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2400
 
-# Statusbar icons flags 1080 x 2400
+# Statusbar icons flags 720 x 1600
 TW_STATUS_ICONS_ALIGN := center
 #TW_CUSTOM_CPU_POS := 50
 TW_CUSTOM_CLOCK_POS := 610
@@ -186,12 +194,9 @@ TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 
 # Crypto
-TW_INCLUDE_CRYPTO := false
-TW_INCLUDE_CRYPTO_FBE := false
-TW_INCLUDE_FBE_METADATA_DECRYPT := false
-#TW_INCLUDE_CRYPTO := true
-#TW_INCLUDE_CRYPTO_FBE := true
-#TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
 #TW_USE_FSCRYPT_POLICY := 2
 
@@ -203,34 +208,35 @@ PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # Stock info
-#PLATFORM_SECURITY_PATCH := 2022-09-05
+#PLATFORM_SECURITY_PATCH := 2022-09-01
 #PLATFORM_VERSION := 12
 
 # Tools
+TW_INCLUDE_FASTBOOTD := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP :=true
-TW_INCLUDE_REPACKTOOLS := true
+#TW_INCLUDE_REPACKTOOLS := true
 
 # TWRP Configuration
-TW_DEFAULT_LANGUAGE := en
+TW_DEFAULT_LANGUAGE := ru
 TW_INPUT_BLACKLIST := hbtp_vm
-TW_DEFAULT_BRIGHTNESS := 1000
-TW_DEVICE_VERSION := IN12 2023 X676C - lopestom
-#TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone54/temp =>> Not Work!
-## I:CPU temperature file '/sys/class/thermal/thermal_zone54/temp' not found, disabling CPU temp. ##
-#TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 100
+TW_DEVICE_VERSION := Infinix Note 12 2023_X676C-V848 - lopestom
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone28/temp
 TW_EXTRA_LANGUAGES := false
 TARGET_USES_MKE2FS := true
 
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_NO_SCREEN_BLANK := true
-TW_SCREEN_BLANK_ON_BOOT := true
+#TW_SCREEN_BLANK_ON_BOOT := true
 TW_HAS_MTP := true
 
 # Vibrator
-#TW_LOAD_VENDOR_MODULES := "haptic.ko"
+#TW_NO_HAPTICS := true
+#TW_LOAD_VENDOR_MODULES := "aw862xx_haptic.ko"
 #TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-#TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+#TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
 
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_FUSE_EXFAT := true
@@ -238,3 +244,4 @@ TW_INCLUDE_FUSE_EXFAT := true
 TW_EXCLUDE_APEX := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_BACKUP_EXCLUSIONS := /data/fonts/files

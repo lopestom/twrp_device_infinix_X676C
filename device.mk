@@ -1,11 +1,11 @@
-#
-# Copyright (C) 2022 The TWRP Open Source Project
+# Copyright (C) 2023 The Android Open Source Project
+# Copyright (C) 2023 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,11 +36,13 @@ AB_OTA_PARTITIONS := \
     system_ext \
     product \
     vendor \
+    vendor_dlkm \
     odm \
+    odm_dlkm \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor
-    
+
 # Update engine
 PRODUCT_PACKAGES += \
     checkpoint_gc \
@@ -53,8 +55,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
     FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
-
-#    FILESYSTEM_TYPE_system=ext4 \
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_vendor=true \
@@ -104,13 +104,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1
 
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so
-
 # Additional target Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4.1
-    
+
+# libion & libxml2
+TARGET_RECOVERY_DEVICE_MODULES += libion
+
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_X676C
 TARGET_RECOVERY_DEVICE_MODULES := libinit_X676C
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so
