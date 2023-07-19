@@ -31,11 +31,11 @@ Some tests was made:
 
 - MT6789 - A12
   - Status: booted??
-  - [?] booted
+  - [X] booted
 
    - vendor_boot-X676C-20230719.img => Working?? Not working?
-  - [?] Working
-  - [?] CPU/temperature correct
+  - [X] Working
+  - [X] CPU/temperature correct
   - [X] Vibrator module not work
 
 </p>
@@ -44,15 +44,9 @@ Some tests was made:
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 
-![Backup](https://github.com/lopestom/)
-
-![Restore](https://github.com/lopestom/)
-
-![Menu](https://github.com/lopestom/)
-
-![Install zip](https://github.com/lopestom)
-
-![Install img](https://github.com/lopestom)
+![Mount Storages](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/Infinix_Note_12_2023-X676C_V848/Screenshot_2023-07-19-10-33-44.png) ![Data Decrypted](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/Infinix_Note_12_2023-X676C_V848/Screenshot_2023-07-19-18-54-30.png) ![Mount Partitions](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/Infinix_Note_12_2023-X676C_V848/Screenshot_2023-07-19-18-54-56.png) ![Mount Partitions 1](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/Infinix_Note_12_2023-X676C_V848/Screenshot_2023-07-19-18-55-02.png)
+![SS data_media](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/Infinix_Note_12_2023-X676C_V848/Screenshot_2023-07-19-18-55-10.png)
+![Data Partition](https://github.com/lopestom/twrp_device_infinix_X676C/releases/download/Infinix_Note_12_2023-X676C_V848/Screenshot_2023-07-19-18-56-04.png)
 
 </p>
 </details>
