@@ -19,12 +19,12 @@ Internal Storage | 128 GB (UFS 2.1)
 
 ### Status
 
-The tester only install `vendor_boot-X676C-20230719.img` file to know if working.
+The tester only install `vendor_boot-X676C-20230718.img` file to know if working.
 <details><summary>History - Click to open</summary>
 <p>
 Some tests was made:
 
-### Second img Test
+### Third img Test
 
 * Initial DT: 2023-07-18
    Compiled img file 2023-07-18 and tested in 2023-07-19
@@ -33,7 +33,7 @@ Some tests was made:
   - Status: booted??
   - [X] booted
 
-   - vendor_boot-X676C-20230719.img => Working?? Not working?
+   - vendor_boot-X676C-20230718.img => Working?? Not working?
   - [X] Working
   - [X] CPU/temperature correct
   - [X] Vibrator module not work
