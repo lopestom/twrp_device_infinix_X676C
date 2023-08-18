@@ -222,7 +222,7 @@ TW_DEFAULT_LANGUAGE := ru
 TW_INPUT_BLACKLIST := hbtp_vm
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 100
-TW_DEVICE_VERSION := Infinix Note 12 2023_X676C-V848 - lopestom
+TW_DEVICE_VERSION := Infinix Note 12 2023_X676C-V1518 - lopestom
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone28/temp
 TW_EXTRA_LANGUAGES := false
 TARGET_USES_MKE2FS := true
@@ -234,7 +234,7 @@ TW_HAS_MTP := true
 
 # Vibrator
 TW_NO_HAPTICS := true
-TW_LOAD_VENDOR_MODULES := "mtk-kpd.ko"
+TW_LOAD_VENDOR_MODULES := "aw862xx_haptic.ko mtk-kpd.ko mtk_panel_ext.ko ili7835_fhdp_dsi_cmd_edo_edo_x676b.ko"
 #TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 #TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
 
