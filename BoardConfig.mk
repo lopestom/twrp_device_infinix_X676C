@@ -234,7 +234,7 @@ TW_HAS_MTP := true
 
 # Vibrator
 TW_NO_HAPTICS := true
-TW_LOAD_VENDOR_MODULES := "aw862xx_haptic.ko mtk-kpd.ko mtk_panel_ext.ko ili7835_fhdp_dsi_cmd_edo_edo_x676b.ko"
+TW_LOAD_VENDOR_MODULES := "aw862xx_haptic.ko mtk-kpd.ko mtk_panel_ext.ko ili7835_fhdp_dsi_cmd_edo_edo_x676b.ko ft3519_common"
 #TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 #TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
 
