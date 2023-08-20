@@ -1,9 +1,9 @@
-#fstab file by lopestom for Infinix Note 12 2023 X676C-H891ZAaAbAc-S-OP-221019V702 -- x676c_h891
+#fstab file by lopestom for Infinix Note 12 2023 - X676C-H891ZAaAbAc-S-OP-230615V1036 - INFINIX-S-64-ARMV82-230614V615-230615V1518 - x676c_h891
 #<mnt_point>       <type>    <device>                            <mnt_flags and options>
 
 # Core Partitions
 /metadata           ext4      /dev/block/by-name/metadata              flags=backup=1;display="metadata"
-/data               f2fs      /dev/block/by-name/userdata            flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,
+/data               f2fs      /dev/block/by-name/userdata            flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
 
 # Common partition
 /boot               emmc      /dev/block/by-name/boot                flags=backup=1;display="Boot";flashimg=1;slotselect
