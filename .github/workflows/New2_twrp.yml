@@ -85,14 +85,14 @@ jobs:
        PATH=~/bin:$PATH
        cd twrp
        export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_X676C-eng && mka $TARGET -j$(nproc --all)
-       cp  out/target/product/X676C/vendor_boot.img    out/target/product/X676C/vendor_boot-X676C-$(date +"%Y%m%d").img  
+       cp  out/target/product/X676C/vendor_boot.img    out/target/product/X676C/vendor_boot-X676C_V1518-$(date +"%Y%m%d").img  
              
     - name: Release recovery image
       uses: softprops/action-gh-release@v1
       env:
        GITHUB_TOKEN: ${{ secrets.TEST }}
       with:
-       tag_name: Infinix_Note_12_2023-X676C_V848
-       name: TWRP370_12-twrp-12
+       tag_name: Infinix_Note_12_2023-X676C_V1518
+       name: TWRP370_12-V1518
        files: | 
          twrp/out/target/product/X676C/*boot*.img
