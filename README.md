@@ -4,7 +4,7 @@
 
 This branch android-12.1 has ***encrypt/decrypt*** files and option to more test with that. 
 
-### Firmware version: X676C-H891AbAc-S-RU-221020_V848.zip -- INFINIX-S-64-ARMV82-221019V1703
+### Firmware version: X676C-H891AbAc-S-RU-230615V1518.zip -- INFINIX-S-64-ARMV82-230614V615 - 230615V1518
 files from tester.
 
 ## Device
@@ -19,21 +19,21 @@ Internal Storage | 128 GB (UFS 2.1)
 
 ### Status
 
-The tester only install `vendor_boot-X676C-20230718.img` file to know if working.
+The tester only install `vendor_boot-X676C-20230821.img` file to know if working.
 <details><summary>History - Click to open</summary>
 <p>
 Some tests was made:
 
 ### Third img Test
 
-* Initial DT: 2023-07-18
-   Compiled img file 2023-07-18 and tested in 2023-07-19
+* Initial DT: 2023-08-20
+   Compiled img file 2023-08-21 and tested in 2023-08-21
 
 - MT6789 - A12
   - Status: booted??
   - [X] booted
 
-   - vendor_boot-X676C-20230718.img => Working?? Not working?
+   - vendor_boot-X676C-20230821.img => Working?? Not working?
   - [X] Working
   - [X] CPU/temperature correct
   - [X] Vibrator module not work
